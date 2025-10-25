@@ -262,6 +262,52 @@ aiohttp>=3.8          # Discord webhooks (Pearl Sniper)
 - ML-Price-Predictor (needs historical data)
 - Auto-Trading Integration (risky!)
 
+## 🚀 Advanced Data-Driven Market Advantage Strategies
+
+Neue Analyse- und Automations-Features, die auf den bestehenden API- und Datapoints aufbauen, um gegenüber dem Markt einen strukturellen Vorteil zu erzielen:
+
+### 1. Velocity & Momentum Radar
+- **Datapoints:** `trade_count`, `total_trade_count`, `basePrice`, Zeitstempel
+- **Ansatz:** Berechne Handelsgeschwindigkeit (Trades pro Minute) und deren Beschleunigung. Kombiniere sie mit kurzfristigen Preisänderungen, um Momentum-Phasen zu erkennen (Breakouts & Trendwenden).
+- **Edge:** Frühzeitig in steigende Trends einsteigen und vor Momentum-Verlust wieder aussteigen.
+
+### 2. Supply Shock Detector
+- **Datapoints:** `stock`, `total_trade_count` in Intervallen, Historie
+- **Ansatz:** Tracke Standardabweichung der Handelsaktivität. Alert, wenn Angebot oder Käufe um >2-3σ von der Norm abweichen (Massendumps, Hamsterkäufe).
+- **Edge:** Crashs kaufen, künstliche Verknappung ausnutzen, bevor der Markt reagiert.
+
+### 3. Cross-Item Correlation Signals
+- **Datapoints:** Zeitreihen aller relevanten Items
+- **Ansatz:** baue Korrelation/Lag-Matrizen (z. B. Grunil-Set, Alchemy-Mats). Wird ein Leit-Item aktiv, triggern Alerts für verzögert folgende Items.
+- **Edge:** Preisbewegungen antizipieren, indem man Vorläufer misst und Nachzügler kauft.
+
+### 4. Whale Activity Monitor
+- **Datapoints:** Ordergrößen, Häufigkeit, `total_trade_count`
+- **Ansatz:** Erkenne Ausreißer-Volumen (z. B. 3σ über Median). Speichere Whale-Profile (Item, Uhrzeit, Häufigkeit).
+- **Edge:** "Smart Money" folgen oder dem Markt ausweichen, wenn dominierende Spieler aktiv werden.
+
+### 5. Event-Driven Playbook
+- **Datapoints:** Patch-Notes, Events, Roadmap + historische Preisreaktionen
+- **Ansatz:** verknüpfe Kalender (Season Starts, Content Patches) mit Item-Historie. Lerne typische Vor- und Nachlaufzeiten.
+- **Edge:** Pre-positioning vor Meta-Shifts (Buff/Nerf), gezielte Profit-Mitnahme kurz nach Events.
+
+### 6. Market Depth & Price Wall Analytics
+- **Datapoints:** Orderbuch (falls API verfügbar), Listings pro Preisstufe
+- **Ansatz:** Identifiziere Preiswände, Liquiditätslücken, Buy-/Sell-Pressure-Ratio.
+- **Edge:** Exakte Entry/Exit-Level, Erkennen wann Wände brechen und Trends beschleunigen.
+
+### 7. Volatility Harvesting & Mean Reversion
+- **Datapoints:** Rolling Preisfenster (z. B. 1h, 6h, 24h)
+- **Ansatz:** Berechne Bollinger-Bänder/ATR. Kauf am unteren Band bei stabiler Nachfrage, Verkauf am oberen Band.
+- **Edge:** Stetige Profite aus oszillierenden Items mit begrenztem Risiko.
+
+### 8. Intelligent Alert Prioritization
+- **Datapoints:** Alle oben genannten Metriken + bestehende Alerts
+- **Ansatz:** Multiparameter-Scoring (Momentum + Volumen + Spread). Machine Learning zur Reduktion von False Positives über Feedback.
+- **Edge:** Fokus auf die profitabelsten Chancen, weniger Alarm-Müdigkeit.
+
+> **Implementation Hint:** Die meisten Strategien profitieren von einer Zeitseriendatenbank (z. B. SQLite/Parquet) + Batch/Streaming-Pipeline. Kombiniere existierende Module (MarketClient, Analyzer, Flip-Scanner) mit neuen Services für Metrikberechnung und Alert Routing (Discord/Telegram/Webhooks).
+
 ## 📖 Resources
 
 - **bdomarket**: https://github.com/Fizzor96/bdomarket
