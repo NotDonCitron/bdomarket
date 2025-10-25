@@ -1,0 +1,18 @@
+region: eu
+pearl_monitor:
+  poll_interval: 1              # Check interval in seconds
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  headless: false               # Show browser for debugging
+  alert_threshold:
+    minimum_profit: 100_000_000  # 100M minimum profit
+    minimum_roi: 0.05            # 5% minimum ROI
+  notifications:
+    terminal: true
+    discord_webhook: null        # Optional Discord webhook
+    sound_alert: true
+  
+# Authentication settings (will be auto-populated)
+auth:
+  session_token: null
+  csrf_token: null
+  user_id: null
