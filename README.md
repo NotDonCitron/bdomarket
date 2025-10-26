@@ -13,6 +13,7 @@ Python-basierte Trading-Assistenten für Black Desert Online Central Market mit 
 - **✅ Enhanced Flip-Scanner** - Mit Item-Namen, Risk-Levels, Competition-Scores
 - **✅ Flip-Optimizer** - Budget-Constraint-Optimierung mit Knapsack-Algorithm
 - **✅ Pearl Sniper** - 1-2 Sekunden Pearl Item Detection mit NO TAX Extraction Profit
+- **✅ Pearl Auto-Buy** - 100ms Detection + Automatic Purchasing mit Persistent Session Authentifizierung
 - **✅ Market History Tracker** - Build your own Garmoth-style historical database (stock & trades over time)
 
 ### 🔮 Future Extensions
@@ -98,7 +99,7 @@ cp config/sniper_watchlist.example.yaml config/sniper_watchlist.yaml
 python sniper.py
 ```
 
-### 2. Pearl Item Sniper 💎 NEW!
+### 2. Pearl Item Sniper 💎
 
 Speed-optimized monitoring für Pearl Items mit Extraction-Profitberechnung:
 
@@ -122,6 +123,39 @@ pythonw pearl_sniper.py
 - Alerts on ANY positive profit margin
 - Multi-channel notifications (Terminal, Toast, Discord)
 - Adaptive polling (1s during peak hours, 2s normal)
+
+### 3. Pearl Auto-Buy System 🛒 NEW!
+
+Real-time monitoring mit **automatic purchasing** und persistent authentication:
+
+```bash
+# One-time setup: Login via Steam and extract session
+python setup_session.py
+
+# Test mode (no actual purchases)
+python pearl_autobuy.py --dry-run
+
+# Production mode (live auto-buy)
+python pearl_autobuy.py
+
+# Background mode (Windows)
+pythonw pearl_autobuy.py
+```
+
+**What it does:**
+- **100ms detection speed** - 10 checks per second via HTTP/2 parallel polling
+- **Automatic purchasing** - Buys profitable items instantly with safety checks
+- **Persistent authentication** - Login once, session persists (no manual re-login)
+- **Profit validation** - Calculates extraction value and validates ROI before buying
+- **Safety features** - Price limits, rate limits, cooldowns
+
+**Key advantages over Pearl Sniper:**
+- 🚀 **10x faster detection** (100ms vs 1-2s)
+- 🛒 **Auto-buy enabled** (no manual action required)
+- 🔐 **Persistent session** (no cookie refresh needed)
+- 🛡️ **Safety checks** (prevents overspending)
+
+**See [AUTOBUY_GUIDE.md](AUTOBUY_GUIDE.md) for complete documentation**
 
 **Example Output:**
 ```
@@ -161,7 +195,7 @@ pearl_sniper:
 
 > **Note:** You're getting Crons at 27-55% cheaper than NPC price!
 
-### 3. Portfolio-Tracker
+### 4. Portfolio-Tracker
 
 Track deine Trades und P&L:
 
@@ -176,7 +210,7 @@ python portfolio.py report
 python portfolio.py status --live
 ```
 
-### 4. Market Analyzer
+### 5. Market Analyzer
 
 Analyse Competition und Market-Timing:
 
@@ -188,7 +222,7 @@ python analyzer.py competition --items 16001,16002,16004
 python analyzer.py timing
 ```
 
-### 5. Enhanced Flip-Scanner
+### 6. Enhanced Flip-Scanner
 
 Scan für profitable Flips mit Intelligence:
 
@@ -196,7 +230,7 @@ Scan für profitable Flips mit Intelligence:
 python flip_scanner.py --max-items 100 --filter-risk LOW
 ```
 
-### 6. Portfolio Optimizer
+### 7. Portfolio Optimizer
 
 Optimiere Budget-Allocation:
 
@@ -204,7 +238,7 @@ Optimiere Budget-Allocation:
 python optimizer.py --budget 500000000 --max-positions 10 --filter-risk LOW
 ```
 
-### 7. Market History Tracker 📊 NEW!
+### 8. Market History Tracker 📊 NEW!
 
 Build your own historical database (like Garmoth's 3-plot graphs):
 
@@ -271,6 +305,10 @@ BDO Trading Tools
 bdo-trading-tools/
 ├── sniper.py                # Item-Sniper ✅
 ├── pearl_sniper.py          # Pearl Item Sniper ✅
+├── pearl_autobuy.py         # Pearl Auto-Buy Controller ✅
+├── setup_session.py         # Session extraction helper ✅
+├── pearl_monitor_parallel.py# HTTP/2 high-speed monitor
+├── pearl_monitor_browser.py # Browser-based DOM monitor
 ├── portfolio.py             # Portfolio-Tracker ✅
 ├── analyzer.py              # Analysis-Engine ✅
 ├── flip_scanner.py          # Enhanced Flip-Scanner ✅
@@ -284,11 +322,17 @@ bdo-trading-tools/
 │   ├── storage.py           # File I/O
 │   ├── pearl_calculator.py  # Pearl extraction calculator
 │   ├── smart_poller.py      # Adaptive polling
-│   └── pearl_alerts.py      # Multi-channel alerts
+│   ├── pearl_alerts.py      # Multi-channel alerts
+│   ├── market_intelligence.py # Trend tracking
+│   ├── session_manager.py   # Persistent auth/session handling
+│   ├── autobuy.py           # Auto-buy safety and execution
+│   └── pearl_detector.py    # HTTP/2 high-speed detection
 │
 ├── config/
 │   ├── sniper_watchlist.yaml    # Item sniper config
-│   └── pearl_sniper.yaml        # Pearl sniper config
+│   ├── pearl_sniper.yaml        # Pearl sniper config
+│   ├── pearl_autobuy.yaml       # Pearl auto-buy config
+│   └── session.json             # Persistent session (gitignored)
 │
 ├── data/
 │   ├── portfolio.csv

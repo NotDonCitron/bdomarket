@@ -25,6 +25,7 @@ venv/
 
 # Local secrets/caches
 config/trader_auth.json
+config/session.json
 *.pyc
 __pycache__/
 
