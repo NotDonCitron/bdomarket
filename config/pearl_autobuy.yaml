@@ -1,0 +1,23 @@
+region: eu
+
+pearl_autobuy:
+  enabled: true
+  detection:
+    # Poll interval in seconds (0.1 = 100ms)
+    poll_interval: 0.1
+  
+  alert_threshold:
+    minimum_profit: 100_000_000
+    minimum_roi: 0.05
+  
+  auto_buy:
+    enabled: true
+    max_price: 5_000_000_000
+    max_purchases_per_hour: 10
+    cooldown_seconds: 2.0
+    require_confirmation: false
+  
+  notifications:
+    terminal_beep: true
+    windows_toast: true
+    discord_webhook: null
