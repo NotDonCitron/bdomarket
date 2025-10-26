@@ -1,0 +1,23 @@
+# BDO Trading Tools - Python Dependencies
+
+# BDO Market API Client
+bdomarket>=0.2.18
+
+# YAML Config Support
+pyyaml>=6.0
+
+# Fuzzy String Matching
+rapidfuzz>=3.0
+
+# Pretty CLI Output
+rich>=13.0
+
+# Data Analysis
+pandas>=2.0
+
+# Windows Toast Notifications (Pearl Sniper)
+win10toast>=0.9
+
+# HTTP Client for Discord Webhooks (Pearl Sniper)
+aiohttp>=3.8
+

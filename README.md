@@ -4,7 +4,7 @@ Python-basierte Trading-Assistenten für Black Desert Online Central Market mit 
 
 ## 🎯 Features
 
-### ✅ Implementiert (Phase 0-6 COMPLETE!)
+### ✅ Implementiert (Phase 0-7 COMPLETE!)
 
 - **✅ bdomarket Integration** - Nutzt existierende API-Library statt eigenem Client
 - **✅ Item-Sniper** - Preis-Alarme für Watchlist-Items mit auto-fetched Item-Namen
@@ -13,6 +13,7 @@ Python-basierte Trading-Assistenten für Black Desert Online Central Market mit 
 - **✅ Enhanced Flip-Scanner** - Mit Item-Namen, Risk-Levels, Competition-Scores
 - **✅ Flip-Optimizer** - Budget-Constraint-Optimierung mit Knapsack-Algorithm
 - **✅ Pearl Sniper** - 1-2 Sekunden Pearl Item Detection mit NO TAX Extraction Profit
+- **✅ Market History Tracker** - Build your own Garmoth-style historical database (stock & trades over time)
 
 ### 🔮 Future Extensions
 
@@ -148,6 +149,32 @@ Optimiere Budget-Allocation:
 python optimizer.py --budget 500000000 --max-positions 10 --filter-risk LOW
 ```
 
+### 7. Market History Tracker 📊 NEW!
+
+Build your own historical database (like Garmoth's 3-plot graphs):
+
+```bash
+# Record daily snapshot (run once per day)
+python record_market_snapshot.py
+
+# Auto-record at midnight (run 24/7)
+python watch_market_history.py
+
+# Query historical data (after collecting for days)
+from utils.market_history_tracker import MarketHistoryTracker
+tracker = MarketHistoryTracker()
+stock_history = tracker.get_stock_history([16001], days=90)
+daily_sales = tracker.get_daily_sales([16001], days=30)
+```
+
+**What it does:**
+- Records stock & trades for all items daily
+- Stores data locally (no cloud needed)
+- Query stock history, trades history, daily sales
+- Build 7-90 day trend analysis
+
+**See [MARKET_HISTORY_GUIDE.md](MARKET_HISTORY_GUIDE.md) for full documentation**
+
 **Config (`config/sniper_watchlist.yaml`):**
 ```yaml
 region: eu
@@ -246,7 +273,7 @@ aiohttp>=3.8          # Discord webhooks (Pearl Sniper)
 
 ## 🗺️ Roadmap
 
-**✅ Phase 0-6 (COMPLETE!):**
+**✅ Phase 0-7 (COMPLETE!):**
 - ✅ bdomarket Integration
 - ✅ MarketClient Wrapper
 - ✅ Item-Sniper mit auto-fetched Namen
@@ -255,6 +282,7 @@ aiohttp>=3.8          # Discord webhooks (Pearl Sniper)
 - ✅ Enhanced Flip-Scanner mit Risk-Levels
 - ✅ Flip-Optimizer mit Budget-Constraints
 - ✅ Pearl Item Sniper mit NO TAX Extraction Profit
+- ✅ Market History Tracker (Stock & Trades over time)
 
 **🔮 Future (Optional):**
 - Discord/Telegram Bot für Notifications
@@ -374,5 +402,5 @@ nssm start PearlSniper
 
 ---
 
-**Status**: Phase 0-6 Complete ✅ | All Features Implemented Including Pearl Sniper! 🎉💎
+**Status**: Phase 0-7 Complete ✅ | All Features Implemented Including Pearl Sniper & Market History! 🎉📊💎
 

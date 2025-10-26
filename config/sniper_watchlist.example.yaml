@@ -1,0 +1,35 @@
+# BDO Item Sniper - Watchlist Configuration
+# Item names are fetched automatically from bdomarket!
+
+region: eu
+poll_interval: 5  # seconds between API checks
+webhook: null  # optional: Discord/Telegram webhook URL for notifications
+
+watchlist:
+  # Specify items by ID (names are auto-fetched)
+  # Find IDs at: https://bdocodex.com or https://garmoth.com
+  
+  - id: 16001  # Black Stone (Weapon)
+    target_buy_max: 180000     # Alert when price <= this
+    target_sell_min: 250000    # Alert when price >= this
+    alert_on: both             # both/buy/sell
+  
+  - id: 16002  # Black Stone (Armor)
+    target_buy_max: 180000
+    target_sell_min: null      # null = don't check
+    alert_on: buy
+  
+  - id: 16004  # Cron Stone
+    target_buy_max: 1900000
+    target_sell_min: 2200000
+    alert_on: both
+  
+  - id: 44195  # Memory Fragment
+    target_buy_max: 1400000
+    target_sell_min: null
+    alert_on: buy
+  
+  # Find more item IDs:
+  # - https://bdocodex.com/us/items/
+  # - https://garmoth.com/market
+

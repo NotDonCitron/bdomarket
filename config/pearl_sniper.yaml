@@ -1,0 +1,150 @@
+# BDO Pearl Item Sniper - Configuration
+# Speed-optimized monitoring for profitable Pearl Item extractions
+
+# Market region (eu, na, kr, sa)
+region: eu
+
+pearl_sniper:
+  enabled: true
+  
+  # ========== MONITORING SETTINGS ==========
+  
+  # Base polling interval in seconds (normal hours)
+  poll_interval: 2
+  
+  # Enable peak hours boost (1s polling during 18-22 UTC)
+  peak_hours_boost: true
+  
+  # ========== MARKET INTELLIGENCE ==========
+  # Track popular Pearl items to identify market trends (optional)
+  
+  market_intelligence:
+    # Enable market intelligence tracking
+    enabled: false  # Set true to enable (uses extra API calls)
+    
+    # Update statistics interval in seconds
+    update_interval: 300  # 5 minutes
+    
+    # Display popular items in healthcheck output
+    display_stats: true
+    
+    # Future: Auto-prioritize popular items (NOT IMPLEMENTED YET)
+    auto_priority: false
+  
+  # ========== PRIME TIME DETECTION ==========
+  # EU-specific optimal listing times based on research
+  
+  prime_time:
+    # Enable prime time detection (auto-adjust polling)
+    enabled: true
+    
+    # Show notifications when entering/exiting prime time
+    notify_transitions: true
+    
+    # Hardcoded EU prime time schedule (UTC):
+    # - Wednesday 10-14 UTC (post-maintenance window)
+    # - Friday 18-23 UTC (weekend prime)
+    # - Saturday 18-23 UTC (weekend prime)
+    # 
+    # During prime time: Automatically switches to 1s polling
+    # Research shows: Most Pearl items are listed during these windows
+  
+  # ========== ALERT THRESHOLDS ==========
+  
+  alert_threshold:
+    # Minimum profit in silver (100M default)
+    # Set to 0 to alert on ANY positive profit
+    minimum_profit: 100_000_000
+    
+    # Minimum ROI as decimal (0.05 = 5%)
+    minimum_roi: 0.05
+  
+  # ========== OUTFIT PRIORITIES ==========
+  # All outfits are monitored, but prioritized by extraction value
+  
+  priorities:
+    - premium    # 993 Crons + 331 Valks → highest profit
+    - mount      # ~900 Crons + ~300 Valks
+    - classic    # 801 Crons + 267 Valks
+    - simple     # 543 Crons + 181 Valks
+  
+  # ========== NOTIFICATIONS ==========
+  
+  notifications:
+    # ASCII beep on alerts (terminal only)
+    terminal_beep: true
+    
+    # Windows toast notifications (requires win10toast)
+    windows_toast: true
+    
+    # Discord webhook URL (optional)
+    # Create webhook: Server Settings → Integrations → Webhooks
+    discord_webhook: null
+    # Example: "https://discord.com/api/webhooks/123456789/abcdefg..."
+  
+  # ========== 24/7 OPERATION ==========
+  
+  # Auto-restart on fatal errors
+  restart_on_error: true
+  
+  # Healthcheck interval in seconds (status updates)
+  healthcheck_interval: 300  # 5 minutes
+  
+  # ========== TESTING ==========
+  
+  # Enable test mode (uses mock data)
+  # Override with --test flag
+  test_mode: false
+
+# ========== EXTRACTION REFERENCE ==========
+# Pearl Item Extraction Values (as of Oct 2025)
+#
+# Premium Outfit (7 parts):
+#   - 993 Cron Stones
+#   - 331 Valks' Cry
+#   - Typical price: 2.17B - 3.4B
+#
+# Classic Outfit (6 parts):
+#   - 801 Cron Stones
+#   - 267 Valks' Cry
+#   - Typical price: 1.8B - 2.9B
+#
+# Simple Outfit (4 parts):
+#   - 543 Cron Stones
+#   - 181 Valks' Cry
+#   - Typical price: 1.2B - 2.2B
+#
+# Mount Gear:
+#   - ~900 Cron Stones
+#   - ~300 Valks' Cry
+#   - Varies by item
+#
+# Reference Prices:
+#   - Cron Stone NPC: 3M (Blacksmith vendor price)
+#   - Cron Stone Market: ~2-2.5M (cheaper than NPC!)
+#   - Valks' Cry Market: ~15-20M
+#
+# Extraction gives even BETTER rates than marketplace!
+# NO TAX on extraction! Pure profit!
+
+# ========== USAGE EXAMPLES ==========
+#
+# Basic usage:
+#   python pearl_sniper.py
+#
+# Test mode (mock data):
+#   python pearl_sniper.py --test
+#
+# Dry run (no alerts):
+#   python pearl_sniper.py --dry-run
+#
+# Custom config:
+#   python pearl_sniper.py --config my_config.yaml
+#
+# 24/7 Background (Windows):
+#   pythonw pearl_sniper.py
+#
+# As Windows Service (NSSM):
+#   nssm install PearlSniper "C:\Python312\pythonw.exe" "C:\path\to\pearl_sniper.py"
+#   nssm start PearlSniper
+
