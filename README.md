@@ -21,6 +21,61 @@ Python-basierte Trading-Assistenten für Black Desert Online Central Market mit 
 - **Web-Dashboard** - Interactive UI
 - **ML-Price-Predictor** - Machine Learning (needs 4+ weeks data)
 
+## 📊 Advanced Market Strategies
+
+**Data-Driven Trading Intelligence** - Comprehensive research and implementation guidance for advanced marketplace strategies.
+
+### Strategy Documentation
+
+- **[CRITICAL_ANALYSIS_BDO_STRATEGIES.md](CRITICAL_ANALYSIS_BDO_STRATEGIES.md)** - Reality-check of strategies against BDO mechanics, S/A/B/C tier rankings, ROI estimates
+- **[STRATEGY_IMPLEMENTATION_PRIORITY.md](STRATEGY_IMPLEMENTATION_PRIORITY.md)** - Actionable roadmap with timelines and expected impact
+- **[MARKET_ADVANTAGE_RESEARCH.md](MARKET_ADVANTAGE_RESEARCH.md)** - Advanced methodologies leveraging bdomarket API data
+
+### Strategy Feasibility Ratings
+
+| Strategy | Feasibility | BDO Constraints | Implementation | ROI |
+|----------|-------------|-----------------|----------------|-----|
+| **Pearl Extraction Arbitrage** | ✅ Feasible | No tax on extraction | ✅ COMPLETE | +574% |
+| **Event-Driven Trading** | ⚠️ Partial | Manual positioning | 🟡 Ready | +150% |
+| **Supply Shock Detection** | ⚠️ Partial | Requires historical data | 🟡 Needs dev | +60% |
+| **Stock Velocity Tracking** | ✅ Feasible | High liquidity items | 🟡 Extend scanner | +30% |
+| **Correlation Analysis** | ✅ Feasible | Item relationships | 🔴 ML module | +35% |
+| **Trend Analysis** | ✅ Feasible | 30+ days data | 🟡 Dashboard | +25% |
+| **Mean Reversion** | ⚠️ Limited | Discrete pricing + tax | 🟡 Needs backtest | +20% |
+| **Volatility Alerts** | ✅ Feasible | Statistical analysis | 🟡 Stats module | +15% |
+| **Whale Profiling** | ❌ Not Feasible | No trader IDs | 🔴 Use supply shock | N/A |
+| **ML Price Prediction** | ⚠️ Limited | Discrete pricing | 🔴 Low priority | +12% |
+
+### BDO Market Constraints (Important!)
+
+⚠️ **The BDO Central Market is NOT a traditional financial market:**
+
+1. **Registration Queue (1-90s)** - Speed advantage is limited; detection doesn't guarantee purchase
+2. **34.5% Effective Tax** - Requires 53% price increase to break even on flips
+3. **Discrete Pricing** - Cannot set arbitrary prices; profit margins are quantized
+4. **No Order Book** - Cannot see pending orders or market depth
+5. **No Trader IDs** - Cannot identify or track individual whales directly
+
+### Quick Reference: Strategy Tiers
+
+**S-Tier (Highest ROI)**
+- Pearl Extraction Arbitrage (ACTIVE ✅) - +574% ROI
+- Event-Driven Trading - +150% ROI
+- Supply Shock Detection - +60% ROI
+
+**A-Tier (High Value)**
+- Stock Velocity Tracking - +30% ROI
+- Correlation Analysis - +35% ROI
+- Trend Analysis Dashboard - +25% ROI
+
+**B-Tier (Moderate Value)**
+- Volatility Alerts - +15% ROI (defensive)
+- Mean Reversion - +20% ROI (limited)
+
+**C-Tier (Low Priority)**
+- ML Item Classifier - +12% ROI
+- Whale Profiling - Not feasible (use supply shock instead)
+
 ## 📦 Installation
 
 ```bash

@@ -21,3 +21,13 @@ win10toast>=0.9
 # HTTP Client for Discord Webhooks (Pearl Sniper)
 aiohttp>=3.8
 
+# Browser automation (optional, for live web monitoring)
+selenium>=4.15.0
+webdriver-manager>=4.0.0
+
+# Async HTTP Client with HTTP/2 support (for parallel pearl monitor)
+httpx[http2]>=0.27.0
+
+# Browser automation with Playwright (for live DOM monitoring)
+playwright>=1.40.0
+

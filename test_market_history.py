@@ -114,7 +114,7 @@ async def demo_with_item_names():
     ]
     
     # Get item names
-    await helper.initialize()
+    await helper.init()
     
     console.print(f"\n[bold]Stock Trends (past {min(7, summary['days_of_data'])} days)[/bold]\n")
     
@@ -131,7 +131,7 @@ async def demo_with_item_names():
         if not history:
             continue
         
-        item_info = await helper.get_item_info(item_id)
+        item_info = await helper.get_by_id(item_id)
         item_name = item_info.name if item_info else f"Item {item_id}"
         
         latest_stock = history[-1][1] if history else 0
@@ -176,7 +176,7 @@ async def demo_with_item_names():
         if not sales:
             continue
         
-        item_info = await helper.get_item_info(item_id)
+        item_info = await helper.get_by_id(item_id)
         item_name = item_info.name if item_info else f"Item {item_id}"
         
         yesterday = sales[-1][1] if sales else 0

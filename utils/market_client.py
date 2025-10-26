@@ -218,4 +218,46 @@ class MarketClient:
         except Exception as e:
             print(f"Error fetching market list: {e}")
             return []
+    
+    async def get_hot_list(self) -> List[Dict[str, Any]]:
+        """
+        Get hot/trending items list.
+        
+        Returns:
+            List of hot items with IDs, names, prices, stock
+            
+        Example:
+            >>> hot_items = await client.get_hot_list()
+            >>> for item in hot_items[:10]:
+            >>>     print(f"{item['name']}: {item['stock']} in stock")
+        """
+        try:
+            result = await self.market.get_world_market_hot_list()
+            if result.success and result.content:
+                return result.content if isinstance(result.content, list) else []
+            return []
+        except Exception as e:
+            print(f"Error fetching hot list: {e}")
+            return []
+    
+    async def get_wait_list(self) -> List[Dict[str, Any]]:
+        """
+        Get wait list (low stock items).
+        
+        Returns:
+            List of items with low/no stock
+            
+        Example:
+            >>> wait_items = await client.get_wait_list()
+            >>> for item in wait_items[:10]:
+            >>>     print(f"{item['name']}: {item.get('stock', 0)} in stock")
+        """
+        try:
+            result = await self.market.get_world_market_wait_list()
+            if result.success and result.content:
+                return result.content if isinstance(result.content, list) else []
+            return []
+        except Exception as e:
+            print(f"Error fetching wait list: {e}")
+            return []
 

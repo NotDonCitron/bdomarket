@@ -34,9 +34,15 @@ python watch_market_history.py
 
 This runs 24/7 and records at midnight automatically.
 
-### 3. Come Back in 7 Days
+### 3. View Your Data Anytime
 
-After collecting for a week, you can:
+Check your collected data without making API calls:
+
+```bash
+python query_market_history.py
+```
+
+After collecting for a week, you can also query programmatically:
 
 ```python
 from utils import MarketHistoryTracker
